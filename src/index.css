@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'TR2N';
+  src: url('/fonts/tr2n/TR2N.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000814;
+  color: #c5e1ff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #001428;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #003366;
+  border-radius: 0;
+  border: 1px solid #00a8ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #004080;
+}
+
+/* Focus styles */
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 168, 255, 0.5);
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 200ms;
+}
+
+/* Tron glow effects */
+.tron-glow {
+  box-shadow: 0 0 5px #00a8ff, 0 0 10px rgba(0, 168, 255, 0.5);
+}
+
+.tron-glow-text {
+  text-shadow: 0 0 5px #00a8ff, 0 0 10px rgba(0, 168, 255, 0.5);
+}
+
+.tron-border {
+  position: relative;
+}
+
+.tron-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #00a8ff;
+  box-shadow: 0 0 5px #00a8ff, 0 0 10px rgba(0, 168, 255, 0.5);
+  pointer-events: none;
+}
+
+/* Noise texture overlay */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Tron-style UI components */
+.bg-tron-surface {
+  background-color: rgba(0, 20, 40, 0.7);
+  border: 1px solid rgba(0, 168, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 168, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.bg-tron-surface-hover:hover {
+  background-color: rgba(0, 30, 60, 0.8);
+  border-color: rgba(0, 168, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 168, 255, 0.2);
+}
+
+/* Tron button styles */
+.tron-button {
+  background-color: transparent;
+  border: 1px solid #00a8ff;
+  color: #00a8ff;
+  box-shadow: 0 0 5px rgba(0, 168, 255, 0.5);
+  transition: all 0.2s ease;
+}
+
+.tron-button:hover {
+  background-color: rgba(0, 168, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 168, 255, 0.7);
+}
+
+.tron-button:active {
+  background-color: rgba(0, 168, 255, 0.2);
+}
+
+/* Pulse animation for elements */
+@keyframes tron-pulse {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 168, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(0, 168, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 168, 255, 0.5);
+  }
+}
+
+.tron-pulse {
+  animation: tron-pulse 2s infinite;
+}
+
+/* TR2N Font */
+.font-tr2n {
+  font-family: 'TR2N', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+/* Identity Disc Animation */
+@keyframes disc-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.identity-disc {
+  animation: disc-rotate 20s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(0, 168, 255, 0.5));
+}
+
+.identity-disc-inner {
+  animation: disc-rotate 15s linear infinite reverse;
+}
+
+/* Enhanced Tron Logo Pulse Animations */
+@keyframes disc-pulse {
+  0% {
+    stroke-width: 1;
+    stroke-opacity: 0.7;
+    filter: drop-shadow(0 0 2px rgba(0, 168, 255, 0.5));
+  }
+  50% {
+    stroke-width: 2;
+    stroke-opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(0, 168, 255, 0.9));
+  }
+  100% {
+    stroke-width: 1;
+    stroke-opacity: 0.7;
+    filter: drop-shadow(0 0 2px rgba(0, 168, 255, 0.5));
+  }
+}
+
+@keyframes center-pulse {
+  0% {
+    r: 8;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px rgba(0, 168, 255, 0.6));
+  }
+  50% {
+    r: 10;
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(0, 168, 255, 1));
+  }
+  100% {
+    r: 8;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px rgba(0, 168, 255, 0.6));
+  }
+}
+
+.disc-pulse {
+  animation: disc-pulse 3s infinite;
+}
+
+.disc-pulse-delayed {
+  animation: disc-pulse 3s infinite 1s;
+}
+
+.center-pulse {
+  animation: center-pulse 3s infinite;
+}
+
+/* Tron Logo Pulse */
+@keyframes logo-pulse {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(0, 168, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(0, 168, 255, 0.8));
+  }
+  100% {
+    filter: drop-shadow(0 0 2px rgba(0, 168, 255, 0.5));
+  }
+}
+
+.logo-pulse {
+  animation: logo-pulse 3s infinite;
+}
