@@ -7,9 +7,24 @@ interface TodoListProps {
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
   onEdit: (id: string, text: string) => void;
+  onColorChange: (id: string, color: string) => void;
+  onAddSubtask: (todoId: string, text: string) => void;
+  onToggleSubtask: (todoId: string, subtaskId: string) => void;
+  onDeleteSubtask: (todoId: string, subtaskId: string) => void;
+  onEditSubtask: (todoId: string, subtaskId: string, text: string) => void;
 }
 
-const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete, onEdit }) => {
+const TodoList: React.FC<TodoListProps> = ({ 
+  todos, 
+  onToggle, 
+  onDelete, 
+  onEdit,
+  onColorChange,
+  onAddSubtask,
+  onToggleSubtask,
+  onDeleteSubtask,
+  onEditSubtask
+}) => {
   if (todos.length === 0) {
     return (
       <div className="text-center py-10 text-gray-500 animate-fade-in">
@@ -28,6 +43,11 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete, onEdit }
           onToggle={onToggle}
           onDelete={onDelete}
           onEdit={onEdit}
+          onColorChange={onColorChange}
+          onAddSubtask={onAddSubtask}
+          onToggleSubtask={onToggleSubtask}
+          onDeleteSubtask={onDeleteSubtask}
+          onEditSubtask={onEditSubtask}
         />
       ))}
     </ul>

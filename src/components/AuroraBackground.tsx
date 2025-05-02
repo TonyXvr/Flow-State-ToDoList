@@ -70,7 +70,8 @@ const TronBackground: React.FC = () => {
       pulses.push({
         nodeIndex: randomNodeIndex,
         progress: 0,
-        speed: 0.01 + Math.random() * 0.02
+        // Reduced speed by 50% for slower movement
+        speed: (0.01 + Math.random() * 0.02) * 0.5
       });
       
       // Limit number of pulses
@@ -190,8 +191,8 @@ const TronBackground: React.FC = () => {
         }
       }
       
-      // Add new pulse occasionally
-      if (timestamp - lastPulseTime > 1000) { // Every second
+      // Add new pulse occasionally - reduced frequency (every 2 seconds instead of 1)
+      if (timestamp - lastPulseTime > 2000) {
         addPulse();
         lastPulseTime = timestamp;
       }
